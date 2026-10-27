@@ -99,28 +99,40 @@ def home(request):
 
             .bg-light {{ background: #f9f9f9; }}
             
-            /* ОБНОВЛЕННЫЕ СТИЛИ ДЛЯ КАРТОЧЕК ПРОГРАММ */
+            /* ОБНОВЛЕННЫЕ КАРТОЧКИ ПРОГРАММ */
             .programs-grid {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }}
             .program-card {{ 
                 background: white; 
                 padding: 40px 30px; 
                 border-radius: 15px; 
                 text-align: center; 
-                box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Более глубокая тень */
-                border: 1px solid #e0e0e0; /* Тонкая рамка для четкости */
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+                border: 1px solid #e0e0e0; 
                 transition: transform 0.3s, box-shadow 0.3s; 
             }}
             .program-card:hover {{ 
-                transform: translateY(-10px); /* Приподнимается выше при наведении */
-                box-shadow: 0 15px 40px rgba(0,0,0,0.15); /* Тень становится еще сильнее */
+                transform: translateY(-10px); 
+                box-shadow: 0 15px 40px rgba(0,0,0,0.15); 
             }}
             .program-card h3 {{ font-size: 1.4rem; margin-bottom: 15px; color: #222; text-transform: uppercase; font-weight: 800; }}
             .program-card p {{ color: #666; font-size: 1rem; }}
 
-            .steps-grid {{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }}
+            /* ОБНОВЛЕННЫЙ БЛОК КАК НАЧАТЬ (ТЕМНЫЕ КАРТОЧКИ) */
+            .steps-grid {{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }}
+            .step-card {{ 
+                background: #2b2b2b; /* Темно-серый фон */
+                color: white; 
+                padding: 30px 20px; 
+                border-radius: 15px; 
+                box-shadow: 0 10px 20px rgba(0,0,0,0.2); 
+                transition: transform 0.3s;
+            }}
+            .step-card:hover {{
+                transform: translateY(-5px);
+            }}
             .step-number {{ font-size: 3rem; font-weight: 900; color: #ff4d4d; margin-bottom: 10px; }}
-            .step-title {{ font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; color: #222; }}
-            .step-text {{ color: #666; font-size: 0.95rem; }}
+            .step-title {{ font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; color: white; }}
+            .step-text {{ color: #cccccc; font-size: 0.95rem; }}
 
             .footer {{ background: #222; color: white; text-align: center; padding: 50px 20px; }}
             .footer p {{ margin-bottom: 10px; font-size: 1.1rem; }}
@@ -212,10 +224,26 @@ def home(request):
             <div class="container">
                 <h2 class="section-title">Как <span>начать</span></h2>
                 <div class="steps-grid">
-                    <div><div class="step-number">01</div><div class="step-title">Выберите программу</div><div class="step-text">Ознакомьтесь с вариантами и выберите подходящий.</div></div>
-                    <div><div class="step-number">02</div><div class="step-title">Выберите дни и часы</div><div class="step-text">Выберите дни и часы тренировок, которые подходят вам и есть у меня свободные.</div></div>
-                    <div><div class="step-number">03</div><div class="step-title">Оплатите</div><div class="step-text">Оплата помесячная за 8 или 12 тренировок.</div></div>
-                    <div><div class="step-number">04</div><div class="step-title">Начинайте тренироваться</div><div class="step-text">Присоединяйтесь онлайн или оффлайн и начинайте делать фигуру своей мечты.</div></div>
+                    <div class="step-card">
+                        <div class="step-number">01</div>
+                        <div class="step-title">Выберите программу</div>
+                        <div class="step-text">Ознакомьтесь с вариантами и выберите подходящий.</div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">02</div>
+                        <div class="step-title">Выберите дни и часы</div>
+                        <div class="step-text">Выберите дни и часы тренировок, которые подходят вам и есть у меня свободные.</div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">03</div>
+                        <div class="step-title">Оплатите</div>
+                        <div class="step-text">Оплата помесячная за 8 или 12 тренировок.</div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">04</div>
+                        <div class="step-title">Начинайте тренироваться</div>
+                        <div class="step-text">Присоединяйтесь онлайн или оффлайн и начинайте делать фигуру своей мечты.</div>
+                    </div>
                 </div>
                 <div style="text-align: center; margin-top: 50px;">
                     <a href="https://wa.me/994504466921?text=Здравствуйте,%20хочу%20записаться%20на%20тренировку" class="whatsapp-btn" target="_blank">Записаться в WhatsApp</a>
