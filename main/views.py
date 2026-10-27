@@ -99,7 +99,6 @@ def home(request):
 
             .bg-light {{ background: #f9f9f9; }}
             
-            /* КАРТОЧКИ ПРОГРАММ С ФОНОМ И ТЕНЬЮ */
             .programs-grid {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }}
             .program-card {{ 
                 background-color: #f5f0ea; 
@@ -117,7 +116,6 @@ def home(request):
             .program-card h3 {{ font-size: 1.4rem; margin-bottom: 15px; color: #222; text-transform: uppercase; font-weight: 800; }}
             .program-card p {{ color: #555; font-size: 1rem; }}
 
-            /* БЛОК КАК НАЧАТЬ (ТЕМНЫЕ КАРТОЧКИ) */
             .steps-grid {{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }}
             .step-card {{ 
                 background: #2b2b2b; 
@@ -255,7 +253,7 @@ def home(request):
             <div class="container">
                 <h2 class="section-title">Калькулятор <span>калорий</span></h2>
                 <div class="calc-container">
-                    <form method="get" action="#calculator"> <!-- ИЗМЕНЕНО НА GET! Теперь данные не сохраняются после обновления -->
+                    <form method="post" action="#calculator">
                         <input type="text" name="gender" placeholder="Пол (М/Ж)" required>
                         <input type="number" name="age" placeholder="Возраст" required>
                         <input type="number" step="0.1" name="weight" placeholder="Вес (кг)" required>
