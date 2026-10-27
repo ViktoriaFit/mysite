@@ -99,28 +99,28 @@ def home(request):
 
             .bg-light {{ background: #f9f9f9; }}
             
-            /* ОБНОВЛЕННЫЕ КАРТОЧКИ ПРОГРАММ */
+            /* ОБНОВЛЕННЫЕ КАРТОЧКИ ПРОГРАММ С ГРАДИЕНТОМ */
             .programs-grid {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }}
             .program-card {{ 
-                background: white; 
+                background: linear-gradient(145deg, #ffffff, #f0f0f0); /* Градиент от белого к светло-серому */
                 padding: 40px 30px; 
                 border-radius: 15px; 
                 text-align: center; 
-                box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
-                border: 1px solid #e0e0e0; 
+                box-shadow: 5px 5px 15px rgba(0,0,0,0.1), -5px -5px 15px rgba(255,255,255,0.8); /* Объемная тень */
+                border: 1px solid rgba(255,255,255,0.5); 
                 transition: transform 0.3s, box-shadow 0.3s; 
             }}
             .program-card:hover {{ 
                 transform: translateY(-10px); 
-                box-shadow: 0 15px 40px rgba(0,0,0,0.15); 
+                box-shadow: 8px 8px 25px rgba(0,0,0,0.15), -8px -8px 25px rgba(255,255,255,0.9); 
             }}
             .program-card h3 {{ font-size: 1.4rem; margin-bottom: 15px; color: #222; text-transform: uppercase; font-weight: 800; }}
-            .program-card p {{ color: #666; font-size: 1rem; }}
+            .program-card p {{ color: #555; font-size: 1rem; }}
 
-            /* ОБНОВЛЕННЫЙ БЛОК КАК НАЧАТЬ (ТЕМНЫЕ КАРТОЧКИ) */
+            /* БЛОК КАК НАЧАТЬ (ТЕМНЫЕ КАРТОЧКИ) */
             .steps-grid {{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }}
             .step-card {{ 
-                background: #2b2b2b; /* Темно-серый фон */
+                background: #2b2b2b; 
                 color: white; 
                 padding: 30px 20px; 
                 border-radius: 15px; 
