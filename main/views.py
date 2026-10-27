@@ -27,7 +27,7 @@ def home(request):
                 optimal = round(tdee * 0.85)
                 aggressive = round(tdee * 0.75)
                 result_text = f"""
-                <div style="background: #fff; padding: 15px; border-radius: 8px; margin-top: 15px; border-left: 5px solid #e63946;">
+                <div style="background: #fff; padding: 15px; border-radius: 8px; margin-top: 15px; border-left: 5px solid #e63946; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
                 <b>Ваш базовый обмен (BMR):</b> {round(bmr)} ккал<br>
                 <b>Ваш суточный расход (TDEE):</b> {round(tdee)} ккал<br><br>
                 <b>Варианты для похудения:</b><br>
@@ -40,7 +40,7 @@ def home(request):
             elif goal == 'gain':
                 surplus = round(tdee * 1.15)
                 result_text = f"""
-                <div style="background: #fff; padding: 15px; border-radius: 8px; margin-top: 15px; border-left: 5px solid #e63946;">
+                <div style="background: #fff; padding: 15px; border-radius: 8px; margin-top: 15px; border-left: 5px solid #e63946; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
                 <b>Ваш базовый обмен (BMR):</b> {round(bmr)} ккал<br>
                 <b>Ваш суточный расход (TDEE):</b> {round(tdee)} ккал<br><br>
                 <b>Для набора массы:</b> рекомендуемая норма <b>{surplus} ккал</b> (профицит +15%).<br>
@@ -49,7 +49,7 @@ def home(request):
                 """
             else:
                 result_text = f"""
-                <div style="background: #fff; padding: 15px; border-radius: 8px; margin-top: 15px; border-left: 5px solid #e63946;">
+                <div style="background: #fff; padding: 15px; border-radius: 8px; margin-top: 15px; border-left: 5px solid #e63946; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
                 <b>Ваш базовый обмен (BMR):</b> {round(bmr)} ккал<br>
                 <b>Ваш суточный расход (TDEE):</b> {round(tdee)} ккал<br><br>
                 <b>Для сохранения веса:</b> придерживайтесь вашей нормы <b>{round(tdee)} ккал</b>.
@@ -99,20 +99,20 @@ def home(request):
 
             .bg-light {{ background: #f9f9f9; }}
             
-            /* ОБНОВЛЕННЫЕ КАРТОЧКИ ПРОГРАММ С ГРАДИЕНТОМ */
+            /* КАРТОЧКИ ПРОГРАММ С ФОНОМ И ТЕНЬЮ */
             .programs-grid {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }}
             .program-card {{ 
-                background: linear-gradient(145deg, #ffffff, #f0f0f0); /* Градиент от белого к светло-серому */
+                background-color: #f5f0ea; /* Теплый бежево-серый фон */
                 padding: 40px 30px; 
                 border-radius: 15px; 
                 text-align: center; 
-                box-shadow: 5px 5px 15px rgba(0,0,0,0.1), -5px -5px 15px rgba(255,255,255,0.8); /* Объемная тень */
-                border: 1px solid rgba(255,255,255,0.5); 
+                box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Объемная тень */
+                border: 1px solid #e0dcd5; 
                 transition: transform 0.3s, box-shadow 0.3s; 
             }}
             .program-card:hover {{ 
                 transform: translateY(-10px); 
-                box-shadow: 8px 8px 25px rgba(0,0,0,0.15), -8px -8px 25px rgba(255,255,255,0.9); 
+                box-shadow: 0 15px 35px rgba(0,0,0,0.15); 
             }}
             .program-card h3 {{ font-size: 1.4rem; margin-bottom: 15px; color: #222; text-transform: uppercase; font-weight: 800; }}
             .program-card p {{ color: #555; font-size: 1rem; }}
@@ -255,7 +255,7 @@ def home(request):
             <div class="container">
                 <h2 class="section-title">Калькулятор <span>калорий</span></h2>
                 <div class="calc-container">
-                    <form method="post">
+                    <form method="post" action="#calculator"> <!-- action="#calculator" чтобы после нажатия страница прокручивалась к калькулятору -->
                         <input type="text" name="gender" placeholder="Пол (М/Ж)" required>
                         <input type="number" name="age" placeholder="Возраст" required>
                         <input type="number" step="0.1" name="weight" placeholder="Вес (кг)" required>
