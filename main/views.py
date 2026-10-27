@@ -119,6 +119,24 @@ def home(request):
             .calc-container button:hover {{ background: #ff4d4d; }}
             .calc-result {{ margin-top: 20px; text-align: left; font-size: 0.95rem; }}
 
+            .whatsapp-btn {{
+                display: inline-block;
+                background-color: #25D366;
+                color: white;
+                padding: 15px 30px;
+                border-radius: 50px;
+                text-decoration: none;
+                font-size: 1.2rem;
+                font-weight: bold;
+                margin-top: 20px;
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+                transition: all 0.3s ease;
+            }}
+            .whatsapp-btn:hover {{
+                background-color: #1ebe5d;
+                transform: translateY(-3px);
+            }}
+
             @media (max-width: 768px) {{
                 .hero h1 {{ font-size: 3rem; }}
                 .hero-titles {{ font-size: 1.1rem; }}
@@ -186,10 +204,12 @@ def home(request):
                     <div><div class="step-number">03</div><div class="step-title">Оплатите</div><div class="step-text">Оплата помесячная за 8 или 12 тренировок.</div></div>
                     <div><div class="step-number">04</div><div class="step-title">Начинайте тренироваться</div><div class="step-text">Присоединяйтесь онлайн или оффлайн и начинайте делать фигуру своей мечты.</div></div>
                 </div>
+                <div style="text-align: center; margin-top: 50px;">
+                    <a href="https://wa.me/994504466921?text=Здравствуйте,%20хочу%20записаться%20на%20тренировку" class="whatsapp-btn" target="_blank">Записаться в WhatsApp</a>
+                </div>
             </div>
         </section>
 
-        <!-- СЕКЦИЯ КАЛЬКУЛЯТОРА -->
         <section id="calculator" class="section bg-light">
             <div class="container">
                 <h2 class="section-title">Калькулятор <span>калорий</span></h2>
@@ -223,7 +243,7 @@ def home(request):
 
         <footer class="footer">
             <h3 style="color: white; margin-bottom: 20px; font-size: 1.5rem;">Свяжитесь со мной</h3>
-            <p>Пишите в Директ Instagram: <a href="https://instagram.com/lavitafit.az" target="_blank">@lavitafit.az</a></p>
+            <p>Пишите в WhatsApp: <a href="https://wa.me/994504466921?text=Здравствуйте,%20хочу%20записаться%20на%20тренировку" target="_blank" style="color: #25D366; font-weight: bold;">Нажмите, чтобы написать</a></p>
             <p>В любое удобное для вас время.</p>
             <p style="margin-top: 30px; font-size: 0.9rem; color: #888;">© 2026 Виктория Зыкова. Персональный тренер.</p>
         </footer>
