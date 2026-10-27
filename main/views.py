@@ -98,9 +98,22 @@ def home(request):
             .about-list li::before {{ content: "✓"; color: #ff4d4d; margin-right: 10px; }}
 
             .bg-light {{ background: #f9f9f9; }}
-            .programs-grid {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }}
-            .program-card {{ background: white; padding: 40px 30px; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s; }}
-            .program-card:hover {{ transform: translateY(-5px); }}
+            
+            /* ОБНОВЛЕННЫЕ СТИЛИ ДЛЯ КАРТОЧЕК ПРОГРАММ */
+            .programs-grid {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }}
+            .program-card {{ 
+                background: white; 
+                padding: 40px 30px; 
+                border-radius: 15px; 
+                text-align: center; 
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Более глубокая тень */
+                border: 1px solid #e0e0e0; /* Тонкая рамка для четкости */
+                transition: transform 0.3s, box-shadow 0.3s; 
+            }}
+            .program-card:hover {{ 
+                transform: translateY(-10px); /* Приподнимается выше при наведении */
+                box-shadow: 0 15px 40px rgba(0,0,0,0.15); /* Тень становится еще сильнее */
+            }}
             .program-card h3 {{ font-size: 1.4rem; margin-bottom: 15px; color: #222; text-transform: uppercase; font-weight: 800; }}
             .program-card p {{ color: #666; font-size: 1rem; }}
 
