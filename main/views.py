@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from django.http import HttpResponse
 
 def home(request):
@@ -12,7 +13,6 @@ def home(request):
             * { margin: 0; padding: 0; box-sizing: border-box; }
             body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #ffffff; color: #333; line-height: 1.6; }
             
-            /* --- ГЛАВНЫЙ ЭКРАН --- */
             .hero { 
                 display: flex; align-items: center; justify-content: center; 
                 min-height: 100vh; text-align: center; padding: 20px;
@@ -23,7 +23,6 @@ def home(request):
             
             .hero-content { max-width: 900px; position: relative; z-index: 2; }
             
-            /* ЛЁГКИЙ СОВРЕМЕННЫЙ ШРИФТ БЕЗ ЗАСЕЧЕК — TREBUCHET MS */
             .hero h1 { 
                 font-size: 4.5rem; 
                 font-weight: normal; 
@@ -42,28 +41,11 @@ def home(request):
             }
             .hero-titles span { display: block; margin-bottom: 5px; }
             
-            /* КРАСНАЯ КНОПКА */
             .btn { 
-                display: inline-block; 
-                padding: 15px 45px; 
-                border-radius: 50px; 
-                text-decoration: none; 
-                font-weight: 600; 
-                font-size: 1.1rem;
-                transition: all 0.3s ease; 
-                text-transform: uppercase;
-                background: #e63946; 
-                color: white;
-                box-shadow: 0 0 20px rgba(230, 57, 70, 0.6); 
-                border: none;
+                display: inline-block; padding: 15px 45px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; text-transform: uppercase; background: #e63946; color: white; box-shadow: 0 0 20px rgba(230, 57, 70, 0.6); border: none;
             }
-            .btn:hover { 
-                background: #ff4d4d; 
-                transform: translateY(-3px); 
-                box-shadow: 0 0 30px rgba(255, 77, 77, 0.9);
-            }
+            .btn:hover { background: #ff4d4d; transform: translateY(-3px); box-shadow: 0 0 30px rgba(255, 77, 77, 0.9); }
 
-            /* --- ОСТАЛЬНЫЕ СЕКЦИИ --- */
             .section { padding: 100px 20px; }
             .container { max-width: 1100px; margin: 0 auto; }
             .section-title { font-size: 2.5rem; text-align: center; margin-bottom: 60px; text-transform: uppercase; color: #222; }
@@ -72,15 +54,12 @@ def home(request):
             .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
             .about-text h2 { font-size: 2.5rem; margin-bottom: 20px; color: #222; }
             .about-text p { font-size: 1.1rem; margin-bottom: 20px; color: #555; }
-            
             .about-image img { width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); display: block; }
-            
             .about-list { list-style: none; margin-top: 20px; }
             .about-list li { margin-bottom: 10px; font-size: 1.1rem; font-weight: bold; color: #222; }
             .about-list li::before { content: "✓"; color: #ff4d4d; margin-right: 10px; }
 
             .bg-light { background: #f9f9f9; }
-            
             .programs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
             .program-card { background: white; padding: 40px 30px; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s; }
             .program-card:hover { transform: translateY(-5px); }
@@ -96,6 +75,14 @@ def home(request):
             .footer p { margin-bottom: 10px; font-size: 1.1rem; }
             .footer a { color: #ff4d4d; text-decoration: none; }
 
+            .calc-btn { background: #333; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-block; margin-top: 20px; }
+
+            /* Стили для калькулятора */
+            .calc-container { max-width: 400px; margin: 40px auto; background: #f4f4f9; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+            .calc-container input, .calc-container select { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+            .calc-container button { width: 100%; padding: 10px; background: #e63946; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; }
+            .calc-result { margin-top: 20px; font-weight: bold; color: #333; text-align: left; font-size: 0.95rem; }
+
             @media (max-width: 768px) {
                 .hero h1 { font-size: 3rem; }
                 .hero-titles { font-size: 1.1rem; }
@@ -106,23 +93,19 @@ def home(request):
     </head>
     <body>
 
-        <!-- 1. ГЛАВНЫЙ ЭКРАН -->
         <header class="hero">
             <div class="hero-content">
                 <h1>Нарисуй своё новое тело</h1>
-                
                 <div class="hero-titles">
                     <span>Ваш персональный тренер — Президент Украинской Федерации Фитнеса</span>
                     <span>Заслуженный тренер Украины</span>
                     <span>Мастер спорта международного класса</span>
                     <span style="margin-top: 15px; font-weight: bold;">Онлайн и офлайн</span>
                 </div>
-
                 <a href="#programs" class="btn">Выбрать программу</a>
             </div>
         </header>
 
-        <!-- 2. ОБО МНЕ -->
         <section id="about" class="section">
             <div class="container about-grid">
                 <div class="about-image">
@@ -132,7 +115,6 @@ def home(request):
                     <h2>Привет, я Виктория!</h2>
                     <p>Я профессиональный персональный фитнес-тренер с 20+ лет практики и тысячи довольных клиентов.</p>
                     <p>Я разрабатываю программу тренировок для любого возраста, уровня физической подготовленности и состояния здоровья.</p>
-                    
                     <p style="margin-top: 20px;"><strong>Вы можете выбрать любую программу, которая подходит под ваши цели:</strong></p>
                     <ul class="about-list">
                         <li>Программа похудения, поддержание или набор мышечной массы</li>
@@ -145,69 +127,67 @@ def home(request):
             </div>
         </section>
 
-        <!-- 3. ПРОГРАММЫ -->
         <section id="programs" class="section bg-light">
             <div class="container">
                 <h2 class="section-title">Выбери <span>программу</span></h2>
                 <div class="programs-grid">
-                    <div class="program-card">
-                        <h3>Снижение и коррекция веса</h3>
-                        <p>Составление тренировочной программы с учётом вашего состояния здоровья, физической подготовленности, возраста. Расчёт калорийности вашего рациона и сбалансированного питания.</p>
-                    </div>
-                    <div class="program-card">
-                        <h3>Реабилитация и профилактика проблем с опорно-двигательным аппаратом</h3>
-                        <p>Программа тренировок составляется с учётом всех ваших противопоказаний по здоровью.</p>
-                    </div>
-                    <div class="program-card">
-                        <h3>Послеродовое восстановление</h3>
-                        <p>Тренировки для восстановления упругости тела.</p>
-                    </div>
-                    <div class="program-card">
-                        <h3>Набор мышечной массы</h3>
-                        <p>Программа тренировок и сбалансированное меню.</p>
-                    </div>
-                    <div class="program-card">
-                        <h3>Спортивная подготовка</h3>
-                        <p>Если ваша цель — выступления на соревнованиях по фитнесу, составлю план периодизации подготовки к соревнованиям, разработаю питание под разные периоды тренировок.</p>
-                    </div>
-                    <div class="program-card">
-                        <h3>Онлайн-ведение</h3>
-                        <p>Тренировки из любой точки мира с полной поддержкой и контролем.</p>
-                    </div>
+                    <div class="program-card"><h3>Снижение и коррекция веса</h3><p>Составление тренировочной программы с учётом вашего состояния здоровья, физической подготовленности, возраста. Расчёт калорийности вашего рациона и сбалансированного питания.</p></div>
+                    <div class="program-card"><h3>Реабилитация и профилактика проблем с опорно-двигательным аппаратом</h3><p>Программа тренировок составляется с учётом всех ваших противопоказаний по здоровью.</p></div>
+                    <div class="program-card"><h3>Послеродовое восстановление</h3><p>Тренировки для восстановления упругости тела.</p></div>
+                    <div class="program-card"><h3>Набор мышечной массы</h3><p>Программа тренировок и сбалансированное меню.</p></div>
+                    <div class="program-card"><h3>Спортивная подготовка</h3><p>Если ваша цель — выступления на соревнованиях по фитнесу, составлю план периодизации подготовки к соревнованиям, разработаю питание под разные периоды тренировок.</p></div>
+                    <div class="program-card"><h3>Онлайн-ведение</h3><p>Тренировки из любой точки мира с полной поддержкой и контролем.</p></div>
                 </div>
             </div>
         </section>
 
-        <!-- 4. КАК НАЧАТЬ -->
         <section class="section">
             <div class="container">
                 <h2 class="section-title">Как <span>начать</span></h2>
                 <div class="steps-grid">
-                    <div>
-                        <div class="step-number">01</div>
-                        <div class="step-title">Выберите программу</div>
-                        <div class="step-text">Ознакомьтесь с вариантами и выберите подходящий.</div>
-                    </div>
-                    <div>
-                        <div class="step-number">02</div>
-                        <div class="step-title">Выберите дни и часы</div>
-                        <div class="step-text">Выберите дни и часы тренировок, которые подходят вам и есть у меня свободные.</div>
-                    </div>
-                    <div>
-                        <div class="step-number">03</div>
-                        <div class="step-title">Оплатите</div>
-                        <div class="step-text">Оплата помесячная за 8 или 12 тренировок.</div>
-                    </div>
-                    <div>
-                        <div class="step-number">04</div>
-                        <div class="step-title">Начинайте тренироваться</div>
-                        <div class="step-text">Присоединяйтесь онлайн или оффлайн и начинайте делать фигуру своей мечты.</div>
-                    </div>
+                    <div><div class="step-number">01</div><div class="step-title">Выберите программу</div><div class="step-text">Ознакомьтесь с вариантами и выберите подходящий.</div></div>
+                    <div><div class="step-number">02</div><div class="step-title">Выберите дни и часы</div><div class="step-text">Выберите дни и часы тренировок, которые подходят вам и есть у меня свободные.</div></div>
+                    <div><div class="step-number">03</div><div class="step-title">Оплатите</div><div class="step-text">Оплата помесячная за 8 или 12 тренировок.</div></div>
+                    <div><div class="step-number">04</div><div class="step-title">Начинайте тренироваться</div><div class="step-text">Присоединяйтесь онлайн или оффлайн и начинайте делать фигуру своей мечты.</div></div>
                 </div>
             </div>
         </section>
 
-        <!-- 5. ПОДВАЛ -->
+        <!-- СЕКЦИЯ КАЛЬКУЛЯТОРА -->
+        <section id="calculator" class="section bg-light">
+            <div class="container">
+                <h2 class="section-title">Калькулятор <span>калорий</span></h2>
+                <div class="calc-container">
+                    <form method="post">
+                        {% csrf_token %}
+                        <input type="text" name="gender" placeholder="Пол (М/Ж)" required>
+                        <input type="number" name="age" placeholder="Возраст" required>
+                        <input type="number" step="0.1" name="weight" placeholder="Вес (кг)" required>
+                        <input type="number" step="0.1" name="height" placeholder="Рост (см)" required>
+                        <select name="activity">
+                            <option value="1.2">Минимальная активность</option>
+                            <option value="1.375">Небольшая активность</option>
+                            <option value="1.55">Средняя активность</option>
+                            <option value="1.725">Высокая активность</option>
+                            <option value="1.9">Очень высокая активность</option>
+                        </select>
+                        <select name="goal">
+                            <option value="lose">Похудеть</option>
+                            <option value="keep">Сохранить вес</option>
+                            <option value="gain">Набрать массу</option>
+                        </select>
+                        <button type="submit">Рассчитать</button>
+                    </form>
+                    
+                    {% if result %}
+                    <div class="calc-result">
+                        {{ result|safe }}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+
         <footer class="footer">
             <h3 style="color: white; margin-bottom: 20px; font-size: 1.5rem;">Свяжитесь со мной</h3>
             <p>Пишите в Директ Instagram: <a href="https://instagram.com/lavitafit.az" target="_blank">@lavitafit.az</a></p>
@@ -218,4 +198,53 @@ def home(request):
     </body>
     </html>
     """
-    return HttpResponse(html)
+    
+    # Логика калькулятора прямо на главной странице
+    result_text = ""
+    if request.method == 'POST':
+        try:
+            gender = request.POST.get('gender', '').strip().lower()
+            age = int(request.POST.get('age', 0))
+            weight = float(request.POST.get('weight', 0))
+            height = float(request.POST.get('height', 0))
+            activity = float(request.POST.get('activity', 1.2))
+            goal = request.POST.get('goal', 'keep')
+
+            if gender in ['м', 'm']:
+                bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5
+            else:
+                bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161
+
+            tdee = bmr * activity
+
+            if goal == 'lose':
+                slow = round(tdee * 0.90)
+                optimal = round(tdee * 0.85)
+                aggressive = round(tdee * 0.75)
+                result_text = f"""
+                <b>Ваш базовый обмен (BMR):</b> {round(bmr)} ккал<br>
+                <b>Ваш суточный расход (TDEE):</b> {round(tdee)} ккал<br><br>
+                <b>Варианты для похудения:</b><br>
+                1. Медленный (дефицит < 10%): <b>{slow} ккал</b>. Безопасный и устойчивый результат.<br>
+                2. Оптимальный (дефицит 10-20%): <b>{optimal} ккал</b>. Рекомендуемый вариант.<br>
+                3. Агрессивный (дефицит > 20%): <b>{aggressive} ккал</b>.<br>
+                <span style='color:red;'>⚠️ ВНИМАНИЕ: Агрессивный дефицит не рекомендуется! Это может привести к срыву, потере мышечной массы и замедлению обмена веществ. Лучше выбрать оптимальный или медленный вариант.</span>
+                """
+            elif goal == 'gain':
+                surplus = round(tdee * 1.15)
+                result_text = f"""
+                <b>Ваш базовый обмен (BMR):</b> {round(bmr)} ккал<br>
+                <b>Ваш суточный расход (TDEE):</b> {round(tdee)} ккал<br><br>
+                <b>Для набора массы:</b> рекомендуемая норма <b>{surplus} ккал</b> (профицит +15%).<br>
+                Совет: набирайте вес постепенно, чтобы избежать лишнего жира.
+                """
+            else:
+                result_text = f"""
+                <b>Ваш базовый обмен (BMR):</b> {round(bmr)} ккал<br>
+                <b>Ваш суточный расход (TDEE):</b> {round(tdee)} ккал<br><br>
+                <b>Для сохранения веса:</b> придерживайтесь вашей нормы <b>{round(tdee)} ккал</b>.
+                """
+        except Exception:
+            result_text = "<span style='color:red;'>Пожалуйста, введите корректные данные (числа).</span>"
+
+    return HttpResponse(html.replace('{% csrf_token %}', '{% csrf_token %}').replace('{% if result %}', '{% if result %}').replace('{% endif %}', '{% endif %}').replace('{{ result|safe }}', result_text))
