@@ -14,8 +14,14 @@ SECRET_KEY = 'django-insecure-1234567890abcdefghijklmnopqrstuvwxyz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# РАЗРЕШАЕМ И СТАРЫЙ, И НОВЫЙ АДРЕСА
-ALLOWED_HOSTS = ['mysite-y22z.onrender.com', 'viktoria-fit.onrender.com', '127.0.0.1', 'localhost']
+# РАЗРЕШАЕМ ВСЕ ВАРИАНТЫ АДРЕСОВ
+ALLOWED_HOSTS = [
+    'viktoria-fit.onrender.com', 
+    'viktoria-fit-onrender-com.onrender.com', 
+    'mysite-y22z.onrender.com', 
+    '127.0.0.1', 
+    'localhost'
+]
 
 # Application definition
 INSTALLED_APPS = [
